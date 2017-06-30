@@ -1,6 +1,5 @@
 package com.tntadvance.firebasenews.activity;
 
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.tntadvance.firebasenews.R;
 import com.tntadvance.firebasenews.dao.NewsDao;
 import com.tntadvance.firebasenews.fragment.MainFragment;
@@ -21,14 +21,14 @@ import com.tntadvance.firebasenews.fragment.MainFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener , MainFragment.FragmentListener {
 
-    private FragmentManager fragmentManager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
 
         initFragment(savedInstanceState);
 

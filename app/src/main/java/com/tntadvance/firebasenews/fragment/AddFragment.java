@@ -345,7 +345,7 @@ public class AddFragment extends Fragment implements View.OnClickListener {
                 dao.setImagePath(downloadUrl.toString());
                 firebase.getDatabase("news").child(id).setValue(dao);
 
-                Toast.makeText(getActivity(), "Upload Complete", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(), "Upload Complete", Toast.LENGTH_LONG).show();
                 getActivity().finish();
             }
         });
